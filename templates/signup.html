@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up - FormFiller Pro</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #141e30, #243b55);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      margin: 0;
+    }
+    .signup-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+      width: 400px;
+    }
+    .signup-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #00e6e6;
+      color: black;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+    a {
+      color: #00ffff;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-box">
+    <h2>Create Account</h2>
+    <form method="POST">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="date" name="dob" required>
+      <textarea name="address" placeholder="Address" required></textarea>
+      <button type="submit">Sign Up</button>
+    </form>
+    <a href="/login">Already have an account? Login</a>
+    <a href="/forgot">Forgot Password?</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{{ config.title }}</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #141e30, #243b55);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      padding: 40px;
+    }
+
+    .form-card {
+      max-width: 500px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    label {
+      margin-top: 12px;
+      display: block;
+      font-weight: 500;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      margin-bottom: 15px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #00d4ff;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-card">
+    <h2>{{ config.title }}</h2>
+    <form action="/generate?exam_id={{ exam_id }}" method="POST" enctype="multipart/form-data">
+      {% for field in config.fields %}
+        <label>{{ field.label }}</label>
+        {% if field.type == 'file' %}
+          <input type="file" name="{{ field.name }}" required>
+        {% elif field.name == 'name' %}
+          <input type="text" name="name" value="{{ user.name }}" required>
+        {% elif field.name == 'dob' %}
+          <input type="date" name="dob" value="{{ user.dob }}" required>
+        {% elif field.name == 'address' %}
+          <textarea name="address" required>{{ user.address }}</textarea>
+        {% else %}
+          <input type="{{ field.type }}" name="{{ field.name }}" required>
+        {% endif %}
+      {% endfor %}
+      <button type="submit">Generate PDF</button>
+    </form>
+  </div>
+</body>
+</html>

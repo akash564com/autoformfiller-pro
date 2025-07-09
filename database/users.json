@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "password": "admin123",
+      "name": "Admin User",
+      "dob": "1990-01-01",
+      "address": "Admin HQ",
+      "role": "admin",
+      "pdfs": []
+    },
+    {
+      "username": "vikas",
+      "password": "12345",
+      "name": "Vikas Kumar",
+      "dob": "2001-01-01",
+      "address": "UP, India",
+      "role": "user",
+      "pdfs": []
+    },
+    {
+      "username": "cggggggggggggggg",
+      "password": "dfdfd",
+      "name": "aaaaaaaaaaa",
+      "dob": "2025-07-16",
+      "address": "yy",
+      "pdfs": []
+    }
+  ]
+}

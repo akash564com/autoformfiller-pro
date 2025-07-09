@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 40px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .search-box {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .export {
+      text-align: right;
+      margin-bottom: 10px;
+    }
+    .export a {
+      text-decoration: none;
+      background: #444;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #007acc;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    form {
+      display: inline;
+    }
+    button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+      margin: 2px;
+    }
+    .delete { background: #e74c3c; }
+    .promote { background: #27ae60; }
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007acc;
+      text-decoration: none;
+    }
+  </style>
+  <script>
+    function searchTable() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const rows = document.querySelectorAll("tbody tr");
+      rows.forEach(row => {
+        const user = row.querySelector("td").innerText.toLowerCase();
+        row.style.display = user.includes(input) ? "" : "none";
+      });
+    }
+  </script>
+</head>
+<body>
+  <h1>Admin Dashboard 👑</h1>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search username...">
+  </div>
+
+  <div class="export">
+    <a href="/export_users">📤 Export Users</a>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>PDFs</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for u in users %}
+      <tr>
+        <td>{{ u.username }}</td>
+        <td>{{ u.name }}</td>
+        <td>{{ u.role }}</td>
+        <td>{{ u.pdfs | length }}</td>
+        <td>
+          {% if u.role != 'admin' %}
+            <form method="POST" action="/promote_user/{{ u.username }}">
+              <button class="promote">Promote</button>
+            </form>
+            <form method="POST" action="/delete_user/{{ u.username }}">
+              <button class="delete" onclick="return confirm('Delete user {{ u.username }}?')">Delete</button>
+            </form>
+          {% else %}
+            —
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a class="back" href="/">← Back to Home</a>
+</body>
+</html>

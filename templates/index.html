@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FormFiller Pro - Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00e6e6;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    .exam-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .exam-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .exam-card:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-5px);
+    }
+
+    .exam-card a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">FormFiller Pro</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/login">Login</a>
+      <a href="/signup">Sign Up</a>
+      <a href="/logout">Logout</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Welcome to FormFiller Pro</h1>
+    <p>Apply to government exams with auto-filled PDF forms in seconds.</p>
+  </div>
+
+  <div class="exam-list">
+    <div class="exam-card"><a href="/form/ssc-cgl">SSC CGL 2025 - Apply Now</a></div>
+    <div class="exam-card"><a href="/form/rrb-ntpc">RRB NTPC Graduate - Apply Now</a></div>
+    <div class="exam-card"><a href="/form/ssc-mts">SSC MTS / Havaldar - Apply Now</a></div>
+    <div class="exam-card"><a href="/form/railway-tech">Railway Technician - Apply Now</a></div>
+    <div class="exam-card"><a href="/form/bihar-police">Bihar Police Constable - Apply</a></div>
+    <div class="exam-card"><a href="/form/rajasthan-hc">Rajasthan HC Class IV - Apply</a></div>
+    <div class="exam-card"><a href="/form/ssc-chsl">SSC CHSL 10+2 - Apply</a></div>
+    <div class="exam-card"><a href="/form/jssc-teacher">JSSC Asst Teacher - Apply</a></div>
+  </div>
+
+  <footer>
+    &copy; 2025 FormFiller Pro. All rights reserved.
+  </footer>
+</body>
+</html>

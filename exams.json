@@ -1,0 +1,24 @@
+{
+  "ssc-cgl": {
+    "title": "SSC CGL 2025 Application Form",
+    "fields": [
+      {"label": "Full Name", "name": "name", "type": "text"},
+      {"label": "Father's Name", "name": "father", "type": "text"},
+      {"label": "Date of Birth", "name": "dob", "type": "date"},
+      {"label": "Address", "name": "address", "type": "textarea"},
+      {"label": "Photo", "name": "photo", "type": "file"},
+      {"label": "Signature", "name": "signature", "type": "file"}
+    ]
+  },
+  "rrb-ntpc": {
+    "title": "RRB NTPC Graduate Level Form",
+    "fields": [
+      {"label": "Candidate Name", "name": "name", "type": "text"},
+      {"label": "Father's Name", "name": "father", "type": "text"},
+      {"label": "Email", "name": "email", "type": "email"},
+      {"label": "Mobile Number", "name": "mobile", "type": "text"},
+      {"label": "Upload Photo", "name": "photo", "type": "file"},
+      {"label": "Upload Signature", "name": "signature", "type": "file"}
+    ]
+  }
+}
