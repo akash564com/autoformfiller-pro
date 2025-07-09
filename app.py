@@ -2,6 +2,27 @@ from flask import Flask, render_template, request, send_file, redirect, url_for,
 from fpdf import FPDF
 from datetime import datetime
 import os, uuid, json
+from werkzeug.security import generate_password_hash, check_password_hash
+from dotenv import load_dotenv
+load_dotenv()
+from flask_mail import Mail, Message
+
+app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER')
+app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT'))
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+
+mail = Mail(app)
+new_user = {
+    "email": request.form['email'],
+    "password": generate_password_hash(request.form['password']),
+    "name": request.form['name'],
+    "dob": request.form['dob'],
+    "address": request.form['address'],
+    "pdfs": []
+}
 
 app = Flask(__name__)
 import os, secrets
@@ -47,6 +68,12 @@ def exam_form(exam_id):
     return render_template('dynamic_exam_form.html', config=exam_data[exam_id], exam_id=exam_id, user=session['user'])
 
 @app.route('/generate', methods=['POST'])
+email = request.form['email']
+password = request.form['password']
+for user in load_users():
+    if user["email"] == email and check_password_hash(user["password"], password):
+        session['user'] = user
+        return redirect('/')
 def generate():
     if 'user' not in session:
         return redirect('/login')
