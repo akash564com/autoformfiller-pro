@@ -4,7 +4,9 @@ from datetime import datetime
 import os, uuid, json
 
 app = Flask(__name__)
-app.secret_key = "your_secret_key"  # session support
+import os, secrets
+app.secret_key = os.getenv("SECRET_KEY", secrets.token_hex(16))
+  # session support
 
 UPLOAD_FOLDER = 'uploads'
 PDF_FOLDER = 'static/generated_pdfs'
