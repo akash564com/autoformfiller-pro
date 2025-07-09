@@ -68,5 +68,35 @@
       <button type="submit">Generate PDF</button>
     </form>
   </div>
+  
+<script>
+  function validateFiles() {
+    const allowedExtensions = ['jpg', 'jpeg', 'png'];
+
+    const photo = document.getElementById('photo').files[0];
+    const signature = document.getElementById('signature').files[0];
+
+    if (!photo || !signature) {
+      alert("Please upload both photo and signature.");
+      return false;
+    }
+
+    const photoExt = photo.name.split('.').pop().toLowerCase();
+    const signExt = signature.name.split('.').pop().toLowerCase();
+
+    if (!allowedExtensions.includes(photoExt)) {
+      alert("Invalid photo format. Please upload JPG, JPEG, or PNG.");
+      return false;
+    }
+
+    if (!allowedExtensions.includes(signExt)) {
+      alert("Invalid signature format. Please upload JPG, JPEG, or PNG.");
+      return false;
+    }
+
+    return true;  // Allow form submit
+  }
+</script>
+
 </body>
 </html>
