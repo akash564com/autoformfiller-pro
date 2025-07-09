@@ -1,15 +1,15 @@
 {
   "users": [
     {
+      "username": "test",
       "email": "test@example.com",
       "password": "hashed_password",
       "name": "Test User",
       "dob": "2000-01-01",
       "address": "Somewhere",
+      "role": "user",
       "pdfs": []
-    }
-  ]
-    
+    },
     {
       "username": "admin",
       "password": "admin123",
@@ -34,6 +34,7 @@
       "name": "aaaaaaaaaaa",
       "dob": "2025-07-16",
       "address": "yy",
+      "role": "user",
       "pdfs": []
     }
   ]
