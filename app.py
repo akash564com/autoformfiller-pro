@@ -6,6 +6,16 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import load_dotenv
 load_dotenv()
 from flask_mail import Mail, Message
+username = request.form['username']
+password = request.form['password']
+users = load_users()
+import os
+app.secret_key = os.getenv("SECRET_KEY")
+
+for user in users:
+    if (user.get("username") == username or user.get("email") == username) and user["password"] == password:
+        session['user'] = user
+        return redirect('/')
 
 app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER')
 app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT'))
@@ -16,13 +26,16 @@ app.config['MAIL_USE_SSL'] = False
 
 mail = Mail(app)
 new_user = {
-    "email": request.form['email'],
-    "password": generate_password_hash(request.form['password']),
+    "username": request.form['username'],
+    "email": request.form['email'],  # ✅ Add this line
+    "password": request.form['password'],
     "name": request.form['name'],
     "dob": request.form['dob'],
     "address": request.form['address'],
+    "role": "user",
     "pdfs": []
 }
+
 
 app = Flask(__name__)
 import os, secrets
