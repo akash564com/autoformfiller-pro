@@ -1,15 +1,21 @@
 {
+  {
   "users": [
     {
-      "username": "test",
-      "email": "test@example.com",
+      "username": "vikas",
+      "email": "vikas@example.com",
       "password": "hashed_password",
-      "name": "Test User",
-      "dob": "2000-01-01",
-      "address": "Somewhere",
+      "name": "Vikas Kumar",
+      "dob": "2001-01-01",
+      "address": "UP, India",
+      "photo": "vikas_photo.jpg",
+      "location": "Lucknow",
       "role": "user",
       "pdfs": []
-    },
+    }
+  ]
+}
+,
     {
       "username": "admin",
       "password": "admin123",
