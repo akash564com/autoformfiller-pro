@@ -2,3 +2,5 @@ flask
 flask-login
 fpdf
 gunicorn
+flask-mail
+email-validator
